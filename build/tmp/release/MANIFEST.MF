@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Title: ChineseInput
+Version: 1.0
+Main-Class: redlaboratory.chineseinput.Core
+

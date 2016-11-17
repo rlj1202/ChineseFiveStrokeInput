@@ -1,0 +1,43 @@
+apply plugin: 'java'
+
+sourceSets {
+	main {
+		java {
+			srcDir 'src/main/java'
+		}
+		resources {
+			srcDir 'src/main/java'
+		}
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	compile
+	testCompile
+}
+
+dependencies {
+	compile project(":JGlobalInputManager")
+	testCompile 'junit:junit:4.12'
+}
+
+sourceCompatibility = 1.8
+
+def title = 'ChineseInput'
+version = 1.0
+
+task release(type: Jar) {
+	manifest {
+		attributes 'Title': title, 'Version': version, 'Main-Class': 'redlaboratory.chineseinput.Core'
+	}
+	
+	from sourceSets.main.output
+	from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	from 'README.md'
+	
+	baseName = 'ChineseInput'
+}
