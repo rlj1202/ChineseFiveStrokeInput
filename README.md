@@ -5,6 +5,9 @@ Chinese input tool with _five-stroke-based_ method.
 - Unihan database from: [http://unicode.org/charts/unihan.html](http://unicode.org/charts/unihan.html)
 - Required libraries: JGlobalInputManager.jar
 
-## Contact
+## Contacts
 Blog: [http://redlaboratory.tistory.com/](http://redlaboratory.tistory.com/)</br>
 E-mail: rlj1202@gmail.com
+
+## Related Project
+JGlobalInputManager: [https://github.com/rlj1202/JGlobalInputManager](https://github.com/rlj1202/JGlobalInputManager)
