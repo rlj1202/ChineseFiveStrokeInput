@@ -36,7 +36,7 @@ version = '0.1.0'
 
 jar {
 	manifest {
-		attributes 'Title': project.name, 'Version': version
+		attributes 'Title': project.name, 'Version': version, 'Main-Class': mainClassName
 	}
 
 	from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
