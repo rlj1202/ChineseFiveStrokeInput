@@ -1,18 +1,9 @@
 apply plugin: 'java'
-
-sourceSets {
-	main {
-		java {
-			srcDir 'src/main/java'
-		}
-		resources {
-			srcDir 'src/main/java'
-		}
-	}
-}
+apply plugin: 'application'
 
 repositories {
 	mavenCentral()
+	maven { url 'https://jitpack.io' }
 }
 
 configurations {
@@ -21,23 +12,36 @@ configurations {
 }
 
 dependencies {
-	compile project(":JGlobalInputManager")
+	compile 'com.github.rlj1202:JGlobalInputManager:0.1.0'
+	testCompile 'com.github.rlj1202:JGlobalInputManager:0.1.0'
 	testCompile 'junit:junit:4.12'
 }
 
-sourceCompatibility = 1.8
-
-def title = 'ChineseInput'
-version = 1.0
-
-task release(type: Jar) {
-	manifest {
-		attributes 'Title': title, 'Version': version, 'Main-Class': 'redlaboratory.chineseinput.Core'
+sourceSets {
+	main {
+		java {
+			srcDirs 'src/main/java'
+		}
+		resources {
+			srcDirs 'src/main/java'
+		}
 	}
-	
-	from sourceSets.main.output
+}
+
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
+mainClassName = 'redlaboratory.chineseinput.Core'
+
+version = '0.1.0'
+
+jar {
+	manifest {
+		attributes 'Title': project.name, 'Version': version
+	}
+
 	from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-	from 'README.md'
-	
-	baseName = 'ChineseInput'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.1'
 }

@@ -1,6 +1,1 @@
-include 'JGlobalInputManager'
-include 'NativeLibrary'
-project(":JGlobalInputManager").projectDir = file("../JGlobalInputManager")
-project(":NativeLibrary").projectDir = file("../JGlobalInputManager/NativeLibrary")
-
-rootProject.name = 'ChineseInput'
+rootProject.name = 'ChineseFiveStrokeInput'

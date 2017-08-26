@@ -9,7 +9,7 @@ public class JUnihanBootingTest {
 	@Test
 	public final void testInitialize() {
 		JUnihan.getInstance().initialize();
-		assertNotNull(null);
+		assertNull(null);
 	}
 
 }
